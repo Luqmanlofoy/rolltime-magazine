@@ -1,25 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>RolltimeMagazine</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROLLTIME Magazine</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #000;
+            padding: 15px 20px;
+            border-bottom: 2px solid #ff0000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ff0000;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff0000;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background-image: url(background.jpg.JPEG);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-tag {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .hero-excerpt {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #ff0000;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: #cc0000;
+        }
+
+        /* Featured Articles */
+        .featured {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #ff0000;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .article-card {
+            background-color: #111;
+            transition: transform 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-category {
+            color: #ff0000;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .article-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: #ff0000;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .newsletter-form button {
+            padding: 15px 25px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 50px 20px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #aaa;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ff0000;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ff0000;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #000;
+                flex-direction: column;
+                padding: 20px;
+                border-bottom: 2px solid #ff0000;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                height: 60vh;
+                padding: 20px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+            }
+
+            .newsletter-form button {
+                margin-top: 10px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-   <div class="main">
-    <div class="navbar">
-        <div class="icon">
-            <img src="logo.png" alt="RolltimeMagazine Logo" class="logo">
+    <header>
+        <div class="logo">GRIND<span>MAG</span></div>
+        <button class="mobile-menu-btn">☰</button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">Photos</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Featured</span>
+            <h1 class="hero-title">The Underground Skate Scene Exploding in Detroit</h1>
+            <p class="hero-excerpt">How abandoned auto factories became the hottest skate spots in the Midwest with exclusive interviews and never-before-seen footage.</p>
+            <a href="#" class="read-more">Read More</a>
         </div>
-        <h1>RolltimeMagazine</h1>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="articles.html">Articles</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+    </section>
 
-    </div>
-   </div>
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Latest Articles</h2>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1572776685600-3f63d0d653dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="article-content">
+                        <span class="article-category">Culture</span>
+                        <h3 class="article-title">Skateboarding's Influence on Modern Street Fashion</h3>
+                        <p class="article-excerpt">From Thrasher tees to Vans classics, how skate culture shaped what we wear today.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1547447134-cd3f5c716030?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="article-content">
+                        <span class="article-category">Interviews</span>
+                        <h3 class="article-title">The Legend Speaks: Tony Hawk on the State of Skateboarding</h3>
+                        <p class="article-excerpt">The Birdman shares his thoughts on the Olympics, video games, and what's next for skate culture.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="article-content">
+                        <span class="article-category">Spot Guide</span>
+                        <h3 class="article-title">Barcelona's Hidden Skate Gems Beyond MACBA</h3>
+                        <p class="article-excerpt">Local skaters reveal their favorite lesser-known spots in the European skate capital.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>Get the Latest Drops</h2>
+        <p>Subscribe to our newsletter for exclusive content, early access to merch drops, and the freshest skate news delivered straight to your inbox.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>GRIND MAG</h3>
+                    <p>Documenting skate culture since 2023. Raw, unfiltered, and always authentic.</p>
+                    <div class="social-links">
+                        <a href="#">⌘</a>
+                        <a href="#">⌘</a>
+                        <a href="#">⌘</a>
+                        <a href="#">⌘</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Sections</h3>
+                    <ul>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">Photos</a></li>
+                        <li><a href="#">Interviews</a></li>
+                        <li><a href="#">Spot Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">Magazines</a></li>
+                        <li><a href="#">Apparel</a></li>
+                        <li><a href="#">Stickers</a></li>
+                        <li><a href="#">Prints</a></li>
+                        <li><a href="#">Subscriptions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Contributors</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 GRIND Magazine. All rights reserved. Skate or die.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+            });
+        });
+    </script>
 </body>
 </html>
