@@ -134,7 +134,7 @@ a:hover {
   }
   
   #main-header.menu-open .logo {
-    max-width: 120px;
+    max-width: 50px;
   }
 }
 
@@ -157,7 +157,7 @@ header {
 .logo {
   display: block;
   margin: 0 auto;
-  max-width: 300px;
+  max-width: 150px;
   height: auto;
 }
 
