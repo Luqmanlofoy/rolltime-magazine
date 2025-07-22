@@ -50,7 +50,7 @@ a:hover {
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: 500px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
@@ -72,36 +72,80 @@ a:hover {
   font-size: 1rem;
 }
 
-/* Mobile Navigation */
+/* Mobile Menu Toggle Styles */
+.mobile-menu-toggle {
+  display: none; /* Hidden by default on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.hamburger-bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--secondary);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Navigation Styles */
 @media (max-width: 768px) {
-  #main-header {
-    padding: 15px 0;
-  }
-  
-  .header-container {
-    flex-direction: column;
-  }
-  
-  #main-header.minimized .header-container {
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  #main-header.minimized nav {
-    display: none; /* Hide nav in minimized state */
-  }
-  
-  /* Optional: Add a hamburger menu */
   .mobile-menu-toggle {
-    display: none; /* Hidden by default */
+    display: block; /* Show on mobile */
   }
   
-  #main-header.minimized .mobile-menu-toggle {
-    display: block;
-    color: var(--secondary);
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-right: 15px;
+  #main-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--background);
+    border-right: 2px solid var(--secondary);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding-top: 80px;
+    overflow-y: auto;
+  }
+  
+  #main-nav.active {
+    left: 0;
+  }
+  
+  #main-nav ul {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  #main-nav ul li {
+    margin: 15px 0;
+  }
+  
+  #main-nav ul li a {
+    font-size: 1.2rem;
+  }
+  
+  /* When menu is open, minimize the header */
+  #main-header.menu-open {
+    padding: 5px 0;
+  }
+  
+  #main-header.menu-open .logo {
+    max-width: 120px;
+  }
+}
+
+/* Desktop Navigation Styles */
+@media (min-width: 769px) {
+  #main-nav {
+    display: block !important; /* Force show on desktop */
+  }
+  
+  .mobile-menu-toggle {
+    display: none !important; /* Force hide on desktop */
   }
 }
 
@@ -157,43 +201,4 @@ footer {
 .copyright {
   font-size: 0.9rem;
   opacity: 0.7;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  nav ul li {
-    margin: 10px 0;
-  }
-  
-  .logo {
-    max-width: 200px;
-  }
-}
-
-/* Hide regular nav on mobile */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-    width: 100%;
-  }
-  
-  nav ul {
-    flex-direction: column;
-    padding: 20px 0;
-  }
-  
-  nav ul li {
-    margin: 10px 0;
-    text-align: center;
-  }
-  
-  /* Show when toggled */
-  nav.active {
-    display: block;
-  }
 }
