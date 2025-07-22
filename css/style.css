@@ -50,7 +50,7 @@ a:hover {
 }
 
 .header-container {
-  max-width: 500px;
+  max-width: 200px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
