@@ -118,7 +118,7 @@ button {
 
 /* Logo Styles */
 .logo {
-  display: block;
+  display: flex;
   max-width: 300px;
   width: auto;
   height: auto;
