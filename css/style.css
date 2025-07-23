@@ -45,11 +45,12 @@ a:hover {
   background-color: var(--background);
   z-index: 1000;
   transition: all 0.3s ease;
-  padding: 20px 0;
+  padding: 10px 20px;
   border-bottom: 2px solid var(--secondary);
   height: 80px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .header-container {
@@ -60,6 +61,7 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 /* Minimized state class */
@@ -98,8 +100,17 @@ a:hover {
 
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
+  .logo {
+    margin: 0 auto;
+    max-width: 200px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   .mobile-menu-toggle {
-    display: block; /* Show on mobile */
+    margin-left: auto;
+    position: relative;
+    z-index: 1002;/* Show on mobile */
   }
   
   #main-nav {
@@ -112,7 +123,7 @@ a:hover {
     border-right: 2px solid var(--secondary);
     transition: left 0.3s ease;
     z-index: 1000;
-    padding-top: 50px;
+    padding-top: 80px;
     overflow-y: auto;
   }
   
@@ -139,7 +150,7 @@ a:hover {
   }
   
   #main-header.menu-open .logo {
-    max-width: 30px;
+    max-width: 200px;
   }
 }
 
@@ -152,21 +163,28 @@ a:hover {
   .mobile-menu-toggle {
     display: none !important; /* Force hide on desktop */
   }
+  nav ul li {
+    margin: 0 10px;
+  }
 }
 
 .logo {
   display: block;
-  margin: 0 auto;
   max-width: 300px;
+  width: auto;
   height: auto;
   max-height: 60px;
+  transition: all 0.3s ease;
+  margin-right: auto;
+  margin-left: 0;
 }
 
 nav ul {
   display: flex;
   justify-content: center;
   list-style: none;
-  margin-top: 20px;
+  margin-top: 0;
+  align-items: center;
 }
 
 nav ul li {
