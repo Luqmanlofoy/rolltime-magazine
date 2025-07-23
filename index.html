@@ -3,87 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ROLLTIME Magazine</title>
+  <meta name="description" content="ROLLTIME Magazine - Your source for skateboarding culture, articles, and videos">
+  <meta property="og:title" content="ROLLTIME Magazine">
+  <meta property="og:description" content="Skateboarding culture, articles, and videos">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rolltimemag.com">
+  <meta name="theme-color" content="#000000">
+  
+  <title>ROLLTIME Magazine | Skateboarding Culture</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="logo.png" as="image">
+  <link rel="preconnect" href="https://www.youtube.com">
 </head>
 <body>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
   <header id="main-header">
-  <div class="header-container">
-    <a href="/" class="logo">
-      <img src="logo.png" alt="ROLLTIME Magazine Logo">
-      ROLLTIME Magazine
-    </a>
-    
-    <!-- Navigation -->
-    <nav id="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="article.html">Articles</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    
-    <button class="mobile-menu-toggle">
-      <span class="hamburger-bar"></span>
-      <span class="hamburger-bar"></span>
-      <span class="hamburger-bar"></span>
-    </button>
-  </div>
-</header>
+    <div class="header-container">
+      <a href="/" class="logo">
+        <img src="logo.png" alt="ROLLTIME Magazine Logo" width="300" height="60" loading="eager">
+        <span class="sr-only">ROLLTIME Magazine</span>
+      </a>
+      
+      <!-- Main Navigation -->
+      <nav id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="article.html">Articles</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
 
-  <main class="container">
-    <section class="featured-article">
-      <h2>Latest Article</h2>
-      <div class="article-card">
-        <img src="mekar photo/amalkeris.JPEG" alt="Featured Article">
+  <main id="main-content" class="container">
+    <!-- Featured Article Section -->
+    <section class="featured-article" aria-labelledby="featured-heading">
+      <h2 id="featured-heading">Latest Article</h2>
+      <article class="article-card">
+        <img src="mekar-photo/amalkeris.JPEG" alt="Skateboarder performing trick in Langkawi" width="800" height="450" loading="lazy">
         <div class="article-info">
           <h3><a href="article.html">MEKAR LANGKASUKA</a></h3>
           <p>A Skateboarding Journey Through Langkawi's Island, Malaysia</p>
-          <a href="article.html" class="read-more">Read More</a>
+          <a href="article.html" class="read-more">Read More <span class="sr-only">about MEKAR LANGKASUKA</span></a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" aria-labelledby="video-heading">
+      <h2 id="video-heading">Latest Video</h2>
+      <div class="video-container">
+        <div class="video-wrapper">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/2I7M7WP8hRM?si=URIgUvARDuyVrfhw" 
+                  title="ROLLTIME Magazine: Skateboarding in Malaysia" 
+                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
     </section>
 
-    <section class="video-section">
-      <h2>Latest Video</h2>
-      <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/2I7M7WP8hRM?si=URIgUvARDuyVrfhw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <section class="upcoming-articles">
-      <h2>Coming Soon</h2>
+    <!-- Upcoming Articles -->
+    <section class="upcoming-articles" aria-labelledby="upcoming-heading">
+      <h2 id="upcoming-heading">Coming Soon</h2>
       <div class="upcoming-grid">
-        <div class="upcoming-item">
-          <img src="images/upcoming1.jpg" alt="Upcoming Article 1">
+        <article class="upcoming-item">
+          <img src="images/upcoming1.jpg" alt="Skate spot in Melaka" width="400" height="225" loading="lazy">
           <h3>Hello from Melaka</h3>
           <p>Dropping next week</p>
-        </div>
-        <div class="upcoming-item">
-          <img src="images/upcoming2.jpg" alt="Upcoming Article 2">
+        </article>
+        
+        <article class="upcoming-item">
+          <img src="images/upcoming2.jpg" alt="Skate photographer in action" width="400" height="225" loading="lazy">
           <h3>Skate Photographer</h3>
           <p>Coming this month</p>
-        </div>
-        <div class="upcoming-item">
-          <img src="images/upcoming3.jpg" alt="Upcoming Article 3">
+        </article>
+        
+        <article class="upcoming-item">
+          <img src="images/upcoming3.jpg" alt="DIY skate spot construction" width="400" height="225" loading="lazy">
           <h3>DIY Skate Spots</h3>
           <p>Under construction</p>
-        </div>
+        </article>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="social-links">
-      <a href="https://instagram.com/rolltimemag" target="_blank">Instagram</a>
-      <a href="https://youtube.com/rolltimemag" target="_blank">YouTube</a>
-      <a href="https://facebook.com/rolltimemag" target="_blank">Facebook</a>
+      <a href="https://instagram.com/rolltimemag" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+        Instagram
+      </a>
+      <a href="https://youtube.com/rolltimemag" target="_blank" rel="noopener noreferrer" aria-label="Subscribe on YouTube">
+        YouTube
+      </a>
+      <a href="https://facebook.com/rolltimemag" target="_blank" rel="noopener noreferrer" aria-label="Like us on Facebook">
+        Facebook
+      </a>
+      <a href="mailto:contact@rolltimemag.com" aria-label="Email us">
+        Email
+      </a>
     </div>
     <p class="copyright">© 2025 ROLLTIME MAGAZINE</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>

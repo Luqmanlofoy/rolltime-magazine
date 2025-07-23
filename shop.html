@@ -3,98 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop | ROLLTIME Magazine</title>
+  <meta name="description" content="ROLLTIME Magazine Shop - Official merchandise including t-shirts, hoodies, and limited edition skateboarding gear">
+  <meta name="keywords" content="skateboarding merchandise, skate shop, ROLLTIME merch, skate magazine">
+  <meta property="og:title" content="ROLLTIME Magazine Shop | Official Merchandise">
+  <meta property="og:description" content="Support independent skate journalism with our official merchandise">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://rolltimemag.com/images/shop-preview.jpg">
+  <meta property="og:url" content="https://rolltimemag.com/shop.html">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <title>ROLLTIME Shop | Official Skateboarding Merchandise</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="preload" href="css/shop.css" as="style">
+  <link rel="preload" href="logo.png" as="image">
+  
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/shop.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
   <header id="main-header">
-  <div class="header-container">
-    <a href="/" class="logo">
-      <img src="logo.png" alt="ROLLTIME Magazine Logo">
-      ROLLTIME Magazine
-    </a>
-    
-    <!-- Navigation -->
-    <nav id="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="article.html">Articles</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    
-    <button class="mobile-menu-toggle">
-      <span class="hamburger-bar"></span>
-      <span class="hamburger-bar"></span>
-      <span class="hamburger-bar"></span>
-    </button>
-  </div>
-</header>
+    <div class="header-container">
+      <a href="/" class="logo">
+        <img src="logo.png" alt="ROLLTIME Magazine" width="200" height="50" loading="eager">
+        <span class="sr-only">ROLLTIME Magazine</span>
+      </a>
+      
+      <nav id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="article.html">Articles</a></li>
+          <li><a href="shop.html" aria-current="page">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <section class="shop-header">
       <h1>ROLLTIME Shop</h1>
-      <p>Get the latest merch and support independent skate journalism</p>
+      <p class="shop-subtitle">Get the latest merch and support independent skate journalism</p>
     </section>
     
-    <section class="products">
+    <div class="shop-controls">
+      <div class="filter-options">
+        <button class="filter-btn active" data-category="all">All Products</button>
+        <button class="filter-btn" data-category="apparel">Apparel</button>
+        <button class="filter-btn" data-category="accessories">Accessories</button>
+        <button class="filter-btn" data-category="magazines">Magazines</button>
+      </div>
+      
+      <div class="sort-options">
+        <label for="sort-by" class="sr-only">Sort by</label>
+        <select id="sort-by" class="sort-select">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="newest">Newest</option>
+        </select>
+      </div>
+    </div>
+    
+    <section class="products" aria-labelledby="products-heading">
+      <h2 id="products-heading" class="sr-only">Products</h2>
+      
       <div class="product-grid">
-        <div class="product-card">
-          <img src="mekar photo/IMG_4410.JPEG" alt="ROLLTIME T-Shirt">
-          <h3>ROLLTIME Logo T-Shirt</h3>
-          <p class="price">$25.00</p>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+        <article class="product-card" data-category="apparel" data-price="25.00">
+          <div class="product-image">
+            <img src="mekar-photo/IMG_4410.JPEG" alt="Black ROLLTIME Logo T-Shirt with front and back views" width="600" height="600" loading="lazy">
+            <span class="product-badge">Bestseller</span>
+          </div>
+          <div class="product-info">
+            <h3>ROLLTIME Logo T-Shirt</h3>
+            <p class="price">$25.00</p>
+            <div class="product-actions">
+              <button class="add-to-cart" aria-label="Add ROLLTIME Logo T-Shirt to cart">
+                Add to Cart
+              </button>
+              <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
         
-        <div class="product-card">
-          <img src="images/hoodie1.jpg" alt="ROLLTIME Hoodie">
-          <h3>ROLLTIME Hoodie</h3>
-          <p class="price">$45.00</p>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+        <article class="product-card" data-category="apparel" data-price="45.00">
+          <div class="product-image">
+            <img src="images/hoodie1.jpg" alt="Black ROLLTIME Hoodie with embroidered logo" width="600" height="600" loading="lazy">
+          </div>
+          <div class="product-info">
+            <h3>ROLLTIME Hoodie</h3>
+            <p class="price">$45.00</p>
+            <div class="product-actions">
+              <button class="add-to-cart" aria-label="Add ROLLTIME Hoodie to cart">
+                Add to Cart
+              </button>
+              <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
         
-        <div class="product-card">
-          <img src="images/sticker1.jpg" alt="ROLLTIME Sticker Pack">
-          <h3>Sticker Pack</h3>
-          <p class="price">$8.00</p>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+        <article class="product-card" data-category="accessories" data-price="8.00">
+          <div class="product-image">
+            <img src="images/sticker1.jpg" alt="ROLLTIME Sticker Pack with 5 different designs" width="600" height="600" loading="lazy">
+            <span class="product-badge">New</span>
+          </div>
+          <div class="product-info">
+            <h3>Sticker Pack</h3>
+            <p class="price">$8.00</p>
+            <div class="product-actions">
+              <button class="add-to-cart" aria-label="Add Sticker Pack to cart">
+                Add to Cart
+              </button>
+              <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
         
-        <div class="product-card">
-          <img src="images/magazine1.jpg" alt="ROLLTIME Magazine Issue #1">
-          <h3>Issue #1 - Print Edition</h3>
-          <p class="price">$12.00</p>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+        <article class="product-card" data-category="magazines" data-price="12.00">
+          <div class="product-image">
+            <img src="images/magazine1.jpg" alt="ROLLTIME Magazine Issue #1 with cover featuring local skater" width="600" height="600" loading="lazy">
+          </div>
+          <div class="product-info">
+            <h3>Issue #1 - Print Edition</h3>
+            <p class="price">$12.00</p>
+            <div class="product-actions">
+              <button class="add-to-cart" aria-label="Add Magazine Issue #1 to cart">
+                Add to Cart
+              </button>
+              <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
         
-        <div class="product-card">
-          <img src="images/hat1.jpg" alt="ROLLTIME Snapback Hat">
-          <h3>Snapback Hat</h3>
-          <p class="price">$28.00</p>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+        <article class="product-card" data-category="accessories" data-price="28.00">
+          <div class="product-image">
+            <img src="images/hat1.jpg" alt="Black ROLLTIME Snapback Hat with embroidered logo" width="600" height="600" loading="lazy">
+          </div>
+          <div class="product-info">
+            <h3>Snapback Hat</h3>
+            <p class="price">$28.00</p>
+            <div class="product-actions">
+              <button class="add-to-cart" aria-label="Add Snapback Hat to cart">
+                Add to Cart
+              </button>
+              <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
         
-        <div class="product-card">
-          <img src="images/poster1.jpg" alt="ROLLTIME Poster">
-          <h3>Limited Edition Poster</h3>
-          <p class="price">$15.00</p>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+        <article class="product-card" data-category="accessories" data-price="15.00">
+          <div class="product-image">
+            <img src="images/poster1.jpg" alt="Limited Edition ROLLTIME Poster featuring skate photography" width="600" height="600" loading="lazy">
+            <span class="product-badge">Limited</span>
+          </div>
+          <div class="product-info">
+            <h3>Limited Edition Poster</h3>
+            <p class="price">$15.00</p>
+            <div class="product-actions">
+              <button class="add-to-cart" aria-label="Add Limited Edition Poster to cart">
+                Add to Cart
+              </button>
+              <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
+    
+    <aside class="cart-preview" aria-labelledby="cart-heading">
+      <h3 id="cart-heading">Your Cart</h3>
+      <div class="cart-items">
+        <!-- Cart items would be dynamically inserted here -->
+        <p class="empty-cart-message">Your cart is empty</p>
+      </div>
+      <div class="cart-total">
+        <p>Total: <span>$0.00</span></p>
+      </div>
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </aside>
   </main>
 
   <footer>
-    <div class="social-links">
-      <a href="https://instagram.com/rolltimemag" target="_blank">Instagram</a>
-      <a href="https://youtube.com/rolltimemag" target="_blank">YouTube</a>
-      <a href="https://facebook.com/rolltimemag" target="_blank">Facebook</a>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">All Products</a></li>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Bestsellers</a></li>
+          <li><a href="#">Sale Items</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <div class="social-links">
+          <a href="https://instagram.com/rolltimemag" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            Instagram
+          </a>
+          <a href="https://youtube.com/rolltimemag" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            YouTube
+          </a>
+          <a href="https://facebook.com/rolltimemag" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            Facebook
+          </a>
+        </div>
+      </div>
     </div>
-    <p class="copyright">© 2025 ROLLTIME MAGAZINE</p>
+    
+    <div class="footer-bottom">
+      <p class="copyright">© <span id="current-year">2025</span> ROLLTIME MAGAZINE</p>
+      <div class="payment-methods">
+        <span class="payment-icon" aria-label="Visa">Visa</span>
+        <span class="payment-icon" aria-label="Mastercard">Mastercard</span>
+        <span class="payment-icon" aria-label="PayPal">PayPal</span>
+      </div>
+    </div>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
+  <script src="js/shop.js" defer></script>
+  <script>
+    // Update copyright year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

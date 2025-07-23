@@ -3,112 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | ROLLTIME Magazine</title>
+  <meta name="description" content="Contact ROLLTIME Magazine - Submit articles, ask questions, or inquire about advertising opportunities">
+  <meta name="keywords" content="contact skate magazine, skateboarding submissions, skate media advertising">
+  <meta property="og:title" content="Contact ROLLTIME Magazine | Skateboarding Media">
+  <meta property="og:description" content="Reach out to ROLLTIME Magazine for submissions, questions, or advertising">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rolltimemag.com/contact.html">
+  
+  <title>Contact ROLLTIME Magazine | Submit Articles & Inquiries</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="preload" href="css/contact.css" as="style">
+  <link rel="preload" href="logo.png" as="image">
+  
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/contact.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
-   <header id="main-header">
-  <div class="header-container">
-    <a href="/" class="logo">
-      <img src="logo.png" alt="ROLLTIME Magazine Logo">
-      ROLLTIME Magazine
-    </a>
-    
-    <!-- Navigation -->
-    <nav id="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="article.html">Articles</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    
-    <button class="mobile-menu-toggle">
-      <span class="hamburger-bar"></span>
-      <span class="hamburger-bar"></span>
-      <span class="hamburger-bar"></span>
-    </button>
-  </div>
-</header>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <header id="main-header">
+    <div class="header-container">
+      <a href="/" class="logo">
+        <img src="logo.png" alt="ROLLTIME Magazine" width="200" height="50" loading="eager">
+        <span class="sr-only">ROLLTIME Magazine</span>
+      </a>
+      
+      <nav id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="article.html">Articles</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
 
-  <main class="container">
-    <section class="contact-header">
-      <h1>Get in Touch</h1>
-      <p>Have questions, submissions, or want to work with us? Reach out below.</p>
+  <main id="main-content" class="container">
+    <section class="contact-header" aria-labelledby="contact-heading">
+      <h1 id="contact-heading">Get in Touch</h1>
+      <p class="contact-subtitle">Have questions, submissions, or want to work with us? Reach out below.</p>
     </section>
     
-    <section class="contact-content">
-      <div class="contact-form">
-        <form>
+    <div class="contact-content">
+      <section class="contact-form" aria-labelledby="form-heading">
+        <h2 id="form-heading" class="sr-only">Contact Form</h2>
+        <form id="contact-form" method="POST" action="https://formspree.io/f/social@rolltimemag.com">
           <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required aria-required="true" minlength="2" maxlength="100">
+            <div class="error-message" id="name-error" aria-live="polite"></div>
           </div>
           
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required aria-required="true" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+            <div class="error-message" id="email-error" aria-live="polite"></div>
           </div>
           
           <div class="form-group">
-            <label for="subject">Subject</label>
-            <select id="subject" name="subject">
+            <label for="subject">Subject <span class="required">*</span></label>
+            <select id="subject" name="subject" required aria-required="true">
+              <option value="" selected disabled>Select a subject</option>
               <option value="general">General Inquiry</option>
               <option value="submission">Article/Photo Submission</option>
               <option value="advertising">Advertising</option>
               <option value="shop">Shop Question</option>
+              <option value="collaboration">Collaboration</option>
               <option value="other">Other</option>
             </select>
           </div>
           
           <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" rows="5" required aria-required="true" minlength="10" maxlength="2000"></textarea>
+            <div class="error-message" id="message-error" aria-live="polite"></div>
           </div>
           
-          <button type="submit" class="submit-btn">Send Message</button>
+          <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">
+              <span class="btn-text">Send Message</span>
+              <span class="loading-spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+          
+          <div class="form-status" id="form-status" aria-live="polite"></div>
         </form>
-      </div>
+      </section>
       
-      <div class="contact-info">
-        <h3>Other Ways to Reach Us</h3>
+      <aside class="contact-info" aria-labelledby="info-heading">
+        <h2 id="info-heading">Other Ways to Reach Us</h2>
         
-        <div class="info-item">
-          <h4>Email</h4>
-          <p>social@rolltimemag.com</p>
+        <div class="info-card">
+          <h3>General Inquiries</h3>
+          <p><a href="mailto:social@rolltimemag.com" class="contact-link">social@rolltimemag.com</a></p>
         </div>
         
-        <div class="info-item">
-          <h4>Submissions</h4>
-          <p>social@rolltimemag.com</p>
+        <div class="info-card">
+          <h3>Submissions</h3>
+          <p><a href="mailto:submissions@rolltimemag.com" class="contact-link">submissions@rolltimemag.com</a></p>
+          <p class="info-note">Please include samples or links to your work</p>
         </div>
         
-        <div class="info-item">
-          <h4>Advertising</h4>
-          <p>social@rolltimemag.com</p>
+        <div class="info-card">
+          <h3>Advertising</h3>
+          <p><a href="mailto:ads@rolltimemag.com" class="contact-link">ads@rolltimemag.com</a></p>
+          <p class="info-note">Media kit available upon request</p>
         </div>
         
-        <div class="info-item">
-          <h4>Mail</h4>
-          <p>ROLLTIME Magazine<br>
-          123 Skate Lane<br>
-          Skate City, SC 12345</p>
+        <div class="info-card">
+          <h3>Mailing Address</h3>
+          <address>
+            ROLLTIME Magazine<br>
+            123 Skate Lane<br>
+            Skate City, SC 12345<br>
+            United States
+          </address>
         </div>
-      </div>
-    </section>
+        
+        <div class="social-links">
+          <h3>Follow Us</h3>
+          <ul>
+            <li>
+              <a href="https://instagram.com/rolltimemag" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <span class="social-icon">📷</span> @rolltimemag
+              </a>
+            </li>
+            <li>
+              <a href="https://youtube.com/rolltimemag" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <span class="social-icon">▶️</span> ROLLTIME Magazine
+              </a>
+            </li>
+            <li>
+              <a href="https://facebook.com/rolltimemag" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <span class="social-icon">👍</span> ROLLTIME Magazine
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <footer>
-    <div class="social-links">
-      <a href="https://instagram.com/rolltimemag" target="_blank">Instagram</a>
-      <a href="https://youtube.com/rolltimemag" target="_blank">YouTube</a>
-      <a href="https://facebook.com/rolltimemag" target="_blank">Facebook</a>
+    <div class="footer-content">
+      <div class="footer-nav">
+        <nav aria-label="Footer navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="article.html">Articles</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="footer-legal">
+        <p class="copyright">© <span id="current-year">2025</span> ROLLTIME MAGAZINE. All rights reserved.</p>
+      </div>
     </div>
-    <p class="copyright">© 2025 ROLLTIME MAGAZINE</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <!-- reCAPTCHA API -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  
+  <!-- Main scripts -->
+  <script src="js/script.js" defer></script>
+  <script src="js/contact.js" defer></script>
+  
+  <script>
+    // Update copyright year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
