@@ -45,7 +45,7 @@ a:hover {
   background-color: var(--background);
   z-index: 1000;
   transition: all 0.3s ease;
-  padding: 10px 0;
+  padding: 1px 0;
   border-bottom: 2px solid var(--secondary);
 }
 
@@ -85,7 +85,7 @@ a:hover {
 .hamburger-bar {
   display: block;
   width: 25px;
-  height: 1px;
+  height: 3px;
   background-color: var(--secondary);
   margin: 5px 0;
   transition: all 0.3s ease;
@@ -134,7 +134,7 @@ a:hover {
   }
   
   #main-header.menu-open .logo {
-    max-width: 50px;
+    max-width: 30px;
   }
 }
 
