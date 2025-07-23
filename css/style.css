@@ -133,7 +133,7 @@ button {
 
 .logo img {
   height: 200px;
-  width: 250;
+  width: 250px;
   max-width: 100%;
   object-fit: contain;
   transition: transform 0.3s ease;
@@ -200,7 +200,8 @@ nav ul li a:focus::after {
 /* Mobile Navigation */
 @media (max-width: 992px) {
   .logo-img {
-    height: min(8vh, 60px);
+    height: 45px;
+    width: 150px;
   }
   
   .mobile-menu-toggle {
@@ -261,7 +262,8 @@ nav ul li a:focus::after {
 /* Desktop Navigation */
 @media (min-width: 768px) {
   .logo-img {
-    height: min(8vh, 60px);
+    height: 40px;
+    width: 150px;
   }
   #main-nav {
     display: block !important;
