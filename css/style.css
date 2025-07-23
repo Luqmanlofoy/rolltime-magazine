@@ -50,9 +50,9 @@ a:hover {
 }
 
 .header-container {
-  max-width: 100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 5px;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,7 +85,7 @@ a:hover {
 .hamburger-bar {
   display: block;
   width: 25px;
-  height: 3px;
+  height: 1px;
   background-color: var(--secondary);
   margin: 5px 0;
   transition: all 0.3s ease;
