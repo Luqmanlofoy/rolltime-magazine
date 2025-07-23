@@ -81,7 +81,7 @@ button {
   background-color: var(--background);
   z-index: 1000;
   transition: height 0.3s ease, padding 0.3s ease;
-  padding: 10px 20px;
+  padding: 10px 0;
   border-bottom: 2px solid var(--secondary);
   height: 80px;
   display: flex;
@@ -104,12 +104,12 @@ button {
 
 /* Minimized Header State */
 #main-header.minimized {
-  height: 60px;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
-#main-header.minimized .logo {
-  transform: scale(0.8);
+#main-header.minimized .logo-img {
+  height: 40px;
+  
 }
 
 #main-header.minimized nav ul li a {
@@ -121,12 +121,22 @@ button {
   display: flex;
   max-width: 300px;
   width: auto;
-  height: auto;
+  height: 100%;
   max-height: 60px;
   transition: transform 0.3s ease;
   margin-right: auto;
   margin-left: 0;
   transform-origin: left center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
 /* Navigation Styles */
@@ -188,13 +198,9 @@ nav ul li a:focus::after {
 }
 
 /* Mobile Navigation */
-@media (max-width: 768px) {
-  .logo {
-    margin: 0 auto;
-    max-width: 200px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+@media (max-width: 992px) {
+  .logo-img {
+    height: 45px;
   }
   
   .mobile-menu-toggle {
@@ -253,7 +259,10 @@ nav ul li a:focus::after {
 }
 
 /* Desktop Navigation */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
+  .logo-img {
+    height: 40px;
+  }
   #main-nav {
     display: block !important;
   }
