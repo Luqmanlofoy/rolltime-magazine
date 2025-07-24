@@ -104,11 +104,12 @@ button {
 
 /* Minimized Header State */
 #main-header.minimized {
+  height: 60px;
   padding: 5px 0;
 }
 
 #main-header.minimized .logo-img {
-  height: 40px;
+  height: 50px;
   
 }
 
@@ -117,24 +118,12 @@ button {
 }
 
 /* Logo Styles */
-.logo {
-  display: flex;
-  max-width: 300px;
-  width: auto;
-  height: 100%;
-  max-height: 60px;
-  transition: transform 0.3s ease;
-  margin-right: auto;
-  margin-left: 0;
-  transform-origin: left center;
-  align-items: center;
-  text-decoration: none;
-}
-
 .logo img {
-  height: 200px;
-  width: 250px;
+  height: 100%;
+  width: auto;
   max-width: 100%;
+  max-height: 60px;
+  min-width: 120px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
@@ -200,8 +189,12 @@ nav ul li a:focus::after {
 /* Mobile Navigation */
 @media (max-width: 992px) {
   .logo-img {
-    height: 45px;
+    height: 50px;
     width: 150px;
+  }
+
+  #main-header.minimized.logo-img {
+  max-height: 40px;
   }
   
   .mobile-menu-toggle {
@@ -248,8 +241,8 @@ nav ul li a:focus::after {
     padding: 5px 0;
   }
   
-  #main-header.menu-open .logo {
-    max-width: 200px;
+  #main-header.menu-open .logo-img {
+    max-height: 50px;
   }
   
   body.menu-open {
