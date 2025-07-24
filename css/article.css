@@ -1,4 +1,8 @@
 /* Article Page Specific Styles */
+#main-content {
+  margin-top: 30px;
+}
+
 .article-content {
   margin: 40px 0;
 }
@@ -100,6 +104,9 @@
 }
 
 @media (max-width: 768px) {
+  #main-content {
+    margin-top: 30px;
+  }
   .article-content h1 {
     font-size: 2rem;
   }
