@@ -104,12 +104,13 @@ button {
 
 /* Minimized Header State */
 #main-header.minimized {
-  height: 60px;
+  height: 70px;
   padding: 5px 0;
 }
 
 #main-header.minimized .logo-img {
-  height: 50px;
+  height: 180px;
+  width: 230px;
   
 }
 
@@ -119,13 +120,13 @@ button {
 
 /* Logo Styles */
 .logo img {
-  height: 100%;
-  width: auto;
+  height: 250px;
+  width: 300px;
   max-width: 100%;
-  max-height: 60px;
   min-width: 120px;
+  min-height: 100px;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 /* Navigation Styles */
@@ -185,16 +186,22 @@ nav ul li a:focus::after {
   transition: all 0.3s ease;
   will-change: transform, opacity;
 }
+/* Minimized State */
+#main-header.minimized.logo-img {
+  height: 180px;
+  width: 230px;
+}
 
 /* Mobile Navigation */
 @media (max-width: 992px) {
   .logo-img {
-    height: 50px;
-    width: 150px;
+    height: 180px;
+    width: 220px;
   }
 
-  #main-header.minimized.logo-img {
-  max-height: 40px;
+  #main-header.minimized .logo-img {
+    height: 120px;
+    width: 160px;
   }
   
   .mobile-menu-toggle {
@@ -255,8 +262,8 @@ nav ul li a:focus::after {
 /* Desktop Navigation */
 @media (min-width: 768px) {
   .logo-img {
-    height: 40px;
-    width: 150px;
+    height: 220px;
+    width: 280px;
   }
   #main-nav {
     display: block !important;
